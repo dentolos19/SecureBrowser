@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Input;
 
 namespace WxBrowser.Graphics
 {
@@ -9,31 +10,40 @@ namespace WxBrowser.Graphics
         public PgTab()
         {
             InitializeComponent();
+            InitializeWebView();
         }
 
-        private void Back(object sender, RoutedEventArgs args)
+        private async void InitializeWebView()
         {
-            // TODO
+            await WebView.EnsureCoreWebView2Async();
         }
 
-        private void Forward(object sender, RoutedEventArgs args)
+        private void GoBack(object sender, RoutedEventArgs args)
         {
-            // TODO
+            if (WebView.CanGoBack)
+                WebView.GoBack();
         }
 
-        private void Refresh(object sender, RoutedEventArgs args)
+        private void GoForward(object sender, RoutedEventArgs args)
         {
-            // TODO
+            if (WebView.CanGoForward)
+                WebView.GoForward();
         }
 
-        private void Home(object sender, RoutedEventArgs args)
+        private void RefreshPage(object sender, RoutedEventArgs args)
         {
-            // TODO
+            WebView.Reload();
         }
 
-        private void Go(object sender, RoutedEventArgs args)
+        private void GoHome(object sender, RoutedEventArgs args)
         {
-            // TODO
+            WebView.CoreWebView2.Navigate(App.Settings.DefaultHomePageUrl);
+        }
+
+        private void NavigateToAddress(object sender, KeyEventArgs args)
+        {
+            if (args.Key == Key.Enter)
+                WebView.CoreWebView2?.Navigate(AddressBar.Text);
         }
 
     }
