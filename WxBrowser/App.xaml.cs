@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using WxBrowser.Graphics;
 
 namespace WxBrowser
 {
@@ -8,7 +9,8 @@ namespace WxBrowser
 
         private void Initialize(object sender, StartupEventArgs args)
         {
-            // TODO
+            Current.MainWindow = new WnMain();
+            Current.MainWindow.Show();
         }
 
     }

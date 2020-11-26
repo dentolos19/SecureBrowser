@@ -1,0 +1,21 @@
+﻿<Window x:Class="WxBrowser.Graphics.WnMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:bindings="clr-namespace:WxBrowser.Core.Bindings"
+        Title="WxBrowser">
+    <TabControl x:Name="ViewTabs" Margin="10,10,10,10">
+        <TabControl.ItemTemplate>
+            <DataTemplate DataType="bindings:ViewTabBinding">
+                <StackPanel Orientation="Horizontal" Height="20">
+                    <TextBlock Text="{Binding Path=Content.Title}" VerticalAlignment="Center"/>
+                    <Image Source="{StaticResource ResourceKey=ImgDelete}" Margin="5,5,0,5" MouseUp="CloseViewTab"/>
+                </StackPanel>
+            </DataTemplate>
+        </TabControl.ItemTemplate>
+        <TabControl.ContentTemplate>
+            <DataTemplate DataType="bindings:ViewTabBinding">
+                <Frame Content="{Binding Path=Content}" NavigationUIVisibility="Hidden"/>
+            </DataTemplate>
+        </TabControl.ContentTemplate>
+    </TabControl>
+</Window>

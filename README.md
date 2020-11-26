@@ -14,3 +14,5 @@
     <img src="https://img.shields.io/badge/Made%20With-Visual%20Studio-blue?logo=visual-studio&style=for-the-badge">
   </a>
 </p>
+
+This project was created to experiment with [WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2), and additionally try out the new features of .NET 5!
