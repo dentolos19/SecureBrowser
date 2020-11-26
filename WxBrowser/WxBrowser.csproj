@@ -13,13 +13,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Web.WebView2" Version="1.0.664.37"/>
-		<PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0"/>
+		<PackageReference Include="Microsoft.Web.WebView2" Version="1.0.664.37" />
+		<PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<Resource Include="Resources\Assets\Delete.png"/>
-		<Resource Include="Resources\Assets\Icon.png"/>
+		<Resource Include="Resources\Assets\Icon.png" />
 	</ItemGroup>
 
 </Project>

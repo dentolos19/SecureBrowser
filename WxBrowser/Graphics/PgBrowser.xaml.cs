@@ -4,13 +4,21 @@ using System.Windows.Input;
 namespace WxBrowser.Graphics
 {
 
-    public partial class PgTab
+    public partial class PgBrowser
     {
 
-        public PgTab()
+        public PgBrowser()
         {
             InitializeComponent();
-            InitializeWebView();
+            if (App.IsWebViewRuntimeInstalled)
+            {
+                ViewControl.SelectedIndex = 0;
+                InitializeWebView();
+            }
+            else
+            {
+                ViewControl.SelectedIndex = 1;
+            }
         }
 
         private async void InitializeWebView()
@@ -32,17 +40,17 @@ namespace WxBrowser.Graphics
 
         private void RefreshPage(object sender, RoutedEventArgs args)
         {
-            WebView.Reload();
+            WebView.CoreWebView2?.Reload();
         }
 
         private void GoHome(object sender, RoutedEventArgs args)
         {
-            WebView.CoreWebView2.Navigate(App.Settings.DefaultHomePageUrl);
+            WebView.CoreWebView2?.Navigate(App.Settings.DefaultHomePageUrl);
         }
 
         private void NavigateToAddress(object sender, KeyEventArgs args)
         {
-            if (args.Key == Key.Enter)
+            if (args.Key == Key.Enter) 
                 WebView.CoreWebView2?.Navigate(AddressBar.Text);
         }
 

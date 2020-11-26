@@ -3,6 +3,4 @@
 
     <BitmapImage x:Key="ImgIcon" UriSource="/WxBrowser;component/Resources/Assets/Icon.png"/>
 
-    <BitmapImage x:Key="ImgDelete" UriSource="/WxBrowser;component/Resources/Assets/Delete.png"/>
-
 </ResourceDictionary>

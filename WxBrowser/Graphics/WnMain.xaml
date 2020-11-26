@@ -3,12 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:bindings="clr-namespace:WxBrowser.Core.Bindings"
         Title="WxBrowser" MinWidth="800" MinHeight="500" WindowStartupLocation="CenterScreen">
-    <TabControl x:Name="ViewTabs" Margin="10,10,10,10">
+    <TabControl x:Name="ViewControl" Margin="10,10,10,10">
         <TabControl.ItemTemplate>
             <DataTemplate DataType="bindings:ViewTabBinding">
-                <StackPanel Orientation="Horizontal" Height="20">
+                <StackPanel Orientation="Horizontal" Height="25">
                     <TextBlock Text="{Binding Path=Content.Title}" VerticalAlignment="Center"/>
-                    <Image Source="{StaticResource ResourceKey=ImgDelete}" Margin="5,5,0,5" MouseUp="CloseViewTab"/>
+                    <TextBlock Text="&#xE894;" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" Margin="5,5,0,5" MouseUp="CloseViewTab"/>
                 </StackPanel>
             </DataTemplate>
         </TabControl.ItemTemplate>

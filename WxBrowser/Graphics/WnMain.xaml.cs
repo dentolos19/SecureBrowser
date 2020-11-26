@@ -13,13 +13,13 @@ namespace WxBrowser.Graphics
         public WnMain()
         {
             InitializeComponent();
-            ViewTabs.ItemsSource = _tabs;
-            _tabs.Add(new ViewTabBinding(new PgTab()));
+            ViewControl.ItemsSource = _tabs;
+            _tabs.Add(new ViewTabBinding(new PgBrowser()));
         }
 
         private void CloseViewTab(object sender, MouseButtonEventArgs args)
         {
-            _tabs.Remove(_tabs[ViewTabs.SelectedIndex]);
+            _tabs.Remove(_tabs[ViewControl.SelectedIndex]);
         }
 
     }

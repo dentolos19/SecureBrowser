@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Windows;
 using Microsoft.Win32;
@@ -10,6 +11,15 @@ namespace WxBrowser.Core
 
     public static class Utilities
     {
+
+        public static void RestartApp(string args = null)
+        {
+            var location = Assembly.GetExecutingAssembly().Location;
+            if (location.EndsWith(".dll", StringComparison.CurrentCultureIgnoreCase))
+                location = Path.Combine(Path.GetDirectoryName(location)!, Path.GetFileNameWithoutExtension(location) + ".exe");
+            Process.Start(location, args ?? string.Empty);
+            Application.Current.Shutdown();
+        }
 
         public static bool IsWebViewRuntimeInstalled()
         {
@@ -31,13 +41,10 @@ namespace WxBrowser.Core
             }
         }
 
-        public static void RestartApp(string args = null)
+        public static string GenerateAlphanumeric(int length)
         {
-            var location = Assembly.GetExecutingAssembly().Location;
-            if (location.EndsWith(".dll", StringComparison.CurrentCultureIgnoreCase))
-                location = Path.Combine(Path.GetDirectoryName(location)!, Path.GetFileNameWithoutExtension(location) + ".exe");
-            Process.Start(location, args ?? string.Empty);
-            Application.Current.Shutdown();
+            var random = new Random();
+            return new string(Enumerable.Repeat("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", length).Select(index => index[random.Next(index.Length)]).ToArray());
         }
 
     }
