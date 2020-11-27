@@ -15,15 +15,7 @@ namespace WxBrowser.Graphics
         public PgBrowser()
         {
             InitializeComponent();
-            if (App.IsWebViewRuntimeInstalled)
-            {
-                InitializeWebView();
-                ViewControl.SelectedIndex = 0;
-            }
-            else
-            {
-                ViewControl.SelectedIndex = 1;
-            }
+            InitializeWebView();
         }
 
         private async void InitializeWebView()

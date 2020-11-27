@@ -5,6 +5,7 @@ using System.IO;
 using System.Net;
 using System.Windows;
 using WxBrowser.Core;
+using AdonisMessageBox = AdonisUI.Controls.MessageBox;
 
 namespace WxBrowser.Graphics
 {
@@ -43,36 +44,44 @@ namespace WxBrowser.Graphics
 
         private void DownloadCompleted(object sender, AsyncCompletedEventArgs args)
         {
-            Dispatcher.Invoke(() =>
+            if (args.Cancelled)
             {
-                StatusText.Text = "Installing...";
-                StatusProgress.IsIndeterminate = true;
-            });
-            var task = Process.Start(new ProcessStartInfo
-            {
-                FileName = _downloadFilePath,
-                Arguments = "/silent /install",
-                Verb = "runas"
-            });
-            task?.WaitForExit();
-            Dispatcher.Invoke(() =>
-            {
-                var answer = MessageBox.Show("Installation completed! Would you like to restart this app?", "WxBrowser", MessageBoxButton.YesNo);
-                if (answer == MessageBoxResult.Yes)
+                if (args.Error != null)
                 {
-                    Utilities.RestartApp();
+                    throw args.Error;
                 }
-                else
+                AdonisMessageBox.Show("The download operation was cancelled! Unable to install runtime!", "WxBrowser");
+                Dispatcher.Invoke(() =>
                 {
                     Application.Current.Shutdown();
-                }
-            });
+                });
+            }
+            else
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    StatusText.Text = "Installing...";
+                    StatusProgress.IsIndeterminate = true;
+                });
+                var task = Process.Start(new ProcessStartInfo
+                {
+                    FileName = _downloadFilePath,
+                    Arguments = "/silent /install",
+                    Verb = "runas"
+                });
+                task?.WaitForExit();
+                File.Delete(_downloadFilePath);
+                Dispatcher.Invoke(() =>
+                {
+                    Utilities.RestartApp();
+                });
+            }
         }
 
         private void StopClosing(object sender, CancelEventArgs args)
         {
             args.Cancel = true;
-            MessageBox.Show("You can't close this window while the operation is running!", "WxBrowser");
+            AdonisMessageBox.Show("You can't close this window while the operation is running!", "WxBrowser");
         }
 
     }
