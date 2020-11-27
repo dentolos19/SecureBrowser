@@ -18,32 +18,31 @@
         </Grid.RowDefinitions>
         <Grid Grid.Column="1" Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="5"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="30"/>
                 <ColumnDefinition Width="5"/>
-                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="BackButton" Grid.Column="0" Content="&#xE72B;" ToolTip="Back" FontFamily="Segoe MDL2 Assets" Width="30" Click="GoBack"/>
-            <Button x:Name="ForwardButton" Grid.Column="2" Content="&#xE72A;" ToolTip="Forward" FontFamily="Segoe MDL2 Assets" Width="30" Click="GoForward"/>
-            <Button x:Name="RefreshButton" Grid.Column="4" Content="&#xE72C;" ToolTip="Refresh" FontFamily="Segoe MDL2 Assets" Width="30" Click="RefreshPage"/>
-            <Button x:Name="HomeButton" Grid.Column="6" Content="&#xE80F;" ToolTip="Home" FontFamily="Segoe MDL2 Assets" Width="30" Click="GoHome"/>
+            <Button x:Name="BackButton" Grid.Column="0" Content="&#xE72B;" ToolTip="Back" FontFamily="Segoe MDL2 Assets" Click="GoBack"/>
+            <Button x:Name="ForwardButton" Grid.Column="2" Content="&#xE72A;" ToolTip="Forward" FontFamily="Segoe MDL2 Assets" Click="GoForward"/>
+            <Button x:Name="RefreshButton" Grid.Column="4" Content="&#xE72C;" ToolTip="Refresh" FontFamily="Segoe MDL2 Assets" Click="RefreshPage"/>
+            <Button x:Name="HomeButton" Grid.Column="6" Content="&#xE80F;" ToolTip="Home" FontFamily="Segoe MDL2 Assets" Click="GoHome"/>
             <TextBox x:Name="AddressBar" Grid.Column="8" VerticalContentAlignment="Center" KeyUp="NavigateToAddress"/>
-            <Button Grid.Column="10" Content="&#xE81C;" ToolTip="History" FontFamily="Segoe MDL2 Assets" Width="30" Click="ShowHistory"/>
-            <Button Grid.Column="12" Content="&#xE896;" ToolTip="Downloads" FontFamily="Segoe MDL2 Assets" Width="30" Click="ShowDownloads"/>
-            <Button Grid.Column="14" Content="&#xE713;" ToolTip="Settings" FontFamily="Segoe MDL2 Assets" Width="30" Click="ShowSettings"/>
+            <Button Grid.Column="10" Content="&#xE81C;" ToolTip="History" FontFamily="Segoe MDL2 Assets" Click="ShowHistory"/>
+            <Button Grid.Column="12" Content="&#xE896;" ToolTip="Downloads" FontFamily="Segoe MDL2 Assets" Click="ShowDownloads"/>
+            <Button Grid.Column="14" Content="&#xE713;" ToolTip="Settings" FontFamily="Segoe MDL2 Assets" Click="ShowSettings"/>
         </Grid>
         <webView:WebView2 x:Name="WebView" Grid.Column="1" Grid.Row="3" NavigationStarting="NavigatingAddress" NavigationCompleted="NavigationCompleted"/>
     </Grid>

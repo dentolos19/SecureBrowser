@@ -15,12 +15,23 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
-        <TextBox Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Center"/>
-        <ListView Grid.Column="1" Grid.Row="3">
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="&#xE72C;" ToolTip="Refresh History" FontFamily="Segoe MDL2 Assets" Click="RefreshHistory"/>
+            <Button Grid.Column="2" Content="&#xE74D;" ToolTip="Clear History" FontFamily="Segoe MDL2 Assets" Click="ClearHistory"/>
+            <TextBox Grid.Column="4" VerticalContentAlignment="Center" KeyDown="FilterHistory"/>
+        </Grid>
+        <ListView x:Name="HistoryList" Grid.Column="1" Grid.Row="3">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Path=Title}"/>
-                    <GridViewColumn Header="URL" DisplayMemberBinding="{Binding Path=Url}"/>
+                    <GridViewColumn Header="Address" DisplayMemberBinding="{Binding Path=Address}"/>
                     <GridViewColumn Header="Time" DisplayMemberBinding="{Binding Path=Time}"/>
                 </GridView>
             </ListView.View>

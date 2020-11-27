@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
 using Microsoft.Web.WebView2.Core;
+using WxBrowser.Core.Bindings;
 
 namespace WxBrowser.Graphics
 {
@@ -94,14 +95,20 @@ namespace WxBrowser.Graphics
 
         private void NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs args)
         {
-            Title = WebView.CoreWebView2.DocumentTitle;
-            AddressBar.Text = WebView.Source.ToString();
+            var title = WebView.CoreWebView2.DocumentTitle;
+            var address = WebView.Source.ToString();
+            Title = title;
+            AddressBar.Text = address;
             BackButton.IsEnabled = WebView.CanGoBack;
             ForwardButton.IsEnabled = WebView.CanGoForward;
             RefreshButton.Content = "\xE72C";
             RefreshButton.ToolTip = "Refresh";
             HomeButton.IsEnabled = true;
             _isNavigating = false;
+            if (!App.Settings.PauseHistory)
+            {
+                App.Settings.WebHistory.Add(new HistoryItemBinding { Title = title, Address = address, Time = DateTime.Now });
+            }
         }
 
         private void ShowHistory(object sender, RoutedEventArgs args)

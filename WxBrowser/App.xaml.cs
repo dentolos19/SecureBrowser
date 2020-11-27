@@ -30,6 +30,11 @@ namespace WxBrowser
             new WnErrorHandler(args.Exception).ShowDialog();
         }
 
+        private void SaveSettings(object sender, ExitEventArgs args)
+        {
+            Settings.Save();
+        }
+
     }
 
 }
