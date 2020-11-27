@@ -14,7 +14,14 @@ namespace WxBrowser.Graphics
         {
             InitializeComponent();
             ViewControl.ItemsSource = _tabs;
-            _tabs.Add(new ViewTabBinding { Content = new PgBrowser() });
+            NewBrowserTab();
+        }
+
+        public void NewBrowserTab()
+        {
+            var tab = new ViewTabBinding { Content = new PgBrowser() };
+            _tabs.Add(tab);
+            ViewControl.SelectedIndex = _tabs.IndexOf(tab);
         }
 
         public void NewHistoryTab()

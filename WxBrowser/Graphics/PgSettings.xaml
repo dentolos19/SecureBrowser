@@ -15,8 +15,9 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Column="1" Grid.Row="1">
-            <!-- TODO -->
+        <StackPanel Grid.Column="1" Grid.Row="1" Margin="10,10,10,0">
+            <CheckBox x:Name="ForceHttpsOption" Content="Force HTTPS" Margin="0,0,0,10"/>
+            <CheckBox x:Name="PauseWebHistoryOption" Content="Pause Web History" Margin="0,0,0,10"/>
         </StackPanel>
         <Grid Grid.Column="1" Grid.Row="3">
             <Grid.ColumnDefinitions>

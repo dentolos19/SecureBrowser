@@ -13,9 +13,9 @@ namespace WxBrowser.Core
         private static readonly string Source = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "WxBrowser.cfg");
 
         public bool ForceHttps { get; set; } = true;
-        public bool PauseHistory { get; set; } = false;
-        public string DefaultPageUrl { get; set; } = "https://www.google.com";
-        public string DefaultSearchUrl { get; set; } = "https://www.google.com/search?q={0}";
+        public bool PauseWebHistory { get; set; } = false;
+        public string DefaultHomeAddress { get; set; } = "https://www.google.com";
+        public string DefaultSearchAddress { get; set; } = "https://www.google.com/search?q={0}";
         public List<HistoryItemBinding> WebHistory { get; set; } = new List<HistoryItemBinding>();
 
         public void Save()

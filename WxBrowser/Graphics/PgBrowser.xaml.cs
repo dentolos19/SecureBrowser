@@ -22,22 +22,38 @@ namespace WxBrowser.Graphics
         private async void InitializeWebView()
         {
             await WebView.EnsureCoreWebView2Async();
-            WebView.CoreWebView2?.Navigate(App.Settings.DefaultPageUrl);
+            WebView.CoreWebView2?.Navigate(App.Settings.DefaultHomeAddress);
         }
 
-        private void GoBack(object sender, RoutedEventArgs args)
+        private void GoBack(object sender, ExecutedRoutedEventArgs args)
         {
             if (WebView.CanGoBack)
                 WebView.GoBack();
         }
 
-        private void GoForward(object sender, RoutedEventArgs args)
+        private void CanGoBack(object sender, CanExecuteRoutedEventArgs args)
+        {
+            if (WebView?.CoreWebView2?.CanGoBack != null && !_isNavigating)
+            {
+                args.CanExecute = WebView.CoreWebView2.CanGoBack;
+            }
+        }
+
+        private void GoForward(object sender, ExecutedRoutedEventArgs args)
         {
             if (WebView.CanGoForward)
                 WebView.GoForward();
         }
 
-        private void RefreshPage(object sender, RoutedEventArgs args)
+        private void CanGoForward(object sender, CanExecuteRoutedEventArgs args)
+        {
+            if (WebView?.CoreWebView2?.CanGoForward != null && !_isNavigating)
+            {
+                args.CanExecute = WebView.CoreWebView2.CanGoForward;
+            }
+        }
+
+        private void RefreshPage(object sender, ExecutedRoutedEventArgs args)
         {
             if (_isNavigating)
             {
@@ -49,9 +65,14 @@ namespace WxBrowser.Graphics
             }
         }
 
-        private void GoHome(object sender, RoutedEventArgs args)
+        private void GoHome(object sender, ExecutedRoutedEventArgs args)
         {
-            WebView.CoreWebView2?.Navigate(App.Settings.DefaultPageUrl);
+            WebView.CoreWebView2?.Navigate(App.Settings.DefaultHomeAddress);
+        }
+
+        private void CanGoHome(object sender, CanExecuteRoutedEventArgs args)
+        {
+            args.CanExecute = !_isNavigating;
         }
 
         private void NavigateToAddress(object sender, KeyEventArgs args)
@@ -69,7 +90,7 @@ namespace WxBrowser.Graphics
             }
             else
             {
-                address = string.Format(App.Settings.DefaultSearchUrl, Uri.EscapeDataString(address));
+                address = string.Format(App.Settings.DefaultSearchAddress, Uri.EscapeDataString(address));
             }
             if (App.Settings.ForceHttps)
             {
@@ -85,11 +106,8 @@ namespace WxBrowser.Graphics
         private void NavigatingAddress(object sender, CoreWebView2NavigationStartingEventArgs args)
         {
             Title = "Navigating...";
-            BackButton.IsEnabled = false;
-            ForwardButton.IsEnabled = false;
             RefreshButton.Content = "\xE894";
             RefreshButton.ToolTip = "Stop";
-            HomeButton.IsEnabled = false;
             _isNavigating = true;
         }
 
@@ -99,16 +117,17 @@ namespace WxBrowser.Graphics
             var address = WebView.Source.ToString();
             Title = title;
             AddressBar.Text = address;
-            BackButton.IsEnabled = WebView.CanGoBack;
-            ForwardButton.IsEnabled = WebView.CanGoForward;
             RefreshButton.Content = "\xE72C";
             RefreshButton.ToolTip = "Refresh";
-            HomeButton.IsEnabled = true;
             _isNavigating = false;
-            if (!App.Settings.PauseHistory)
-            {
+            if (!App.Settings.PauseWebHistory)
                 App.Settings.WebHistory.Add(new HistoryItemBinding { Title = title, Address = address, Time = DateTime.Now });
-            }
+        }
+
+        private void NewTab(object sender, RoutedEventArgs args)
+        {
+            if (Application.Current.MainWindow is WnMain window)
+                window.NewBrowserTab();
         }
 
         private void ShowHistory(object sender, RoutedEventArgs args)
