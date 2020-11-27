@@ -1,10 +1,10 @@
 ﻿namespace WxBrowser.Graphics
 {
 
-    public partial class PgSettings
+    public partial class PgDownloads
     {
 
-        public PgSettings()
+        public PgDownloads()
         {
             InitializeComponent();
         }

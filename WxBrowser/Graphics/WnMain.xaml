@@ -6,10 +6,15 @@
     <TabControl x:Name="ViewControl" Margin="10,10,10,10">
         <TabControl.ItemTemplate>
             <DataTemplate DataType="bindings:ViewTabBinding">
-                <StackPanel Orientation="Horizontal" Height="25">
-                    <TextBlock Text="{Binding Path=Content.Title}" VerticalAlignment="Center"/>
-                    <TextBlock Text="&#xE894;" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" Margin="5,5,0,5" MouseUp="CloseViewTab"/>
-                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="{Binding Path=Content.Title}" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Column="2" Text="&#xE894;" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" MouseUp="CloseViewTab"/>
+                </Grid>
             </DataTemplate>
         </TabControl.ItemTemplate>
         <TabControl.ContentTemplate>

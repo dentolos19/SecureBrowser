@@ -11,7 +11,9 @@ namespace WxBrowser.Core
         private static readonly string Source = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "WxBrowser.cfg");
         private static readonly XmlSerializer Serializer = new XmlSerializer(typeof(Configuration));
 
-        public string DefaultHomePageUrl = "https://www.google.com";
+        public bool ForceHttps { get; set; } = true;
+        public string DefaultPageUrl { get; set; } = "https://www.google.com";
+        public string DefaultSearchUrl { get; set; } = "https://www.google.com/search?q={0}";
 
         public void Save()
         {
