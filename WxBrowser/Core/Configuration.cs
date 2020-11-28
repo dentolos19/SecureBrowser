@@ -14,6 +14,7 @@ namespace WxBrowser.Core
 
         public bool ForceHttps { get; set; } = true;
         public bool PauseWebHistory { get; set; } = false;
+        public bool EnableDarkMode { get; set; } = true;
         public string DefaultHomeAddress { get; set; } = "https://www.google.com";
         public string DefaultSearchAddress { get; set; } = "https://www.google.com/search?q={0}";
         public List<HistoryItemBinding> WebHistory { get; set; } = new List<HistoryItemBinding>();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Input;
 using Microsoft.Web.WebView2.Core;
 using WxBrowser.Core.Bindings;
@@ -22,7 +23,15 @@ namespace WxBrowser.Graphics
         private async void InitializeWebView()
         {
             await WebView.EnsureCoreWebView2Async();
-            WebView.CoreWebView2?.Navigate(App.Settings.DefaultHomeAddress);
+            if (WebView.CoreWebView2 == null)
+                return;
+            WebView.CoreWebView2.HistoryChanged += delegate
+            {
+                AddressBar.Text = WebView.Source.ToString();
+                if (!App.Settings.PauseWebHistory)
+                    App.Settings.WebHistory.Add(new HistoryItemBinding { Title = WebView.CoreWebView2.DocumentTitle, Address = WebView.Source.ToString(), Time = DateTime.Now });
+            };
+            WebView.CoreWebView2.Navigate(App.Settings.DefaultHomeAddress);
         }
 
         private void GoBack(object sender, ExecutedRoutedEventArgs args)
@@ -34,9 +43,7 @@ namespace WxBrowser.Graphics
         private void CanGoBack(object sender, CanExecuteRoutedEventArgs args)
         {
             if (WebView?.CoreWebView2?.CanGoBack != null && !_isNavigating)
-            {
                 args.CanExecute = WebView.CoreWebView2.CanGoBack;
-            }
         }
 
         private void GoForward(object sender, ExecutedRoutedEventArgs args)
@@ -48,9 +55,7 @@ namespace WxBrowser.Graphics
         private void CanGoForward(object sender, CanExecuteRoutedEventArgs args)
         {
             if (WebView?.CoreWebView2?.CanGoForward != null && !_isNavigating)
-            {
                 args.CanExecute = WebView.CoreWebView2.CanGoForward;
-            }
         }
 
         private void RefreshPage(object sender, ExecutedRoutedEventArgs args)
@@ -113,15 +118,10 @@ namespace WxBrowser.Graphics
 
         private void NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs args)
         {
-            var title = WebView.CoreWebView2.DocumentTitle;
-            var address = WebView.Source.ToString();
-            Title = title;
-            AddressBar.Text = address;
+            Title = WebView.CoreWebView2.DocumentTitle;
             RefreshButton.Content = "\xE72C";
             RefreshButton.ToolTip = "Refresh";
             _isNavigating = false;
-            if (!App.Settings.PauseWebHistory)
-                App.Settings.WebHistory.Add(new HistoryItemBinding { Title = title, Address = address, Time = DateTime.Now });
         }
 
         private void NewTab(object sender, RoutedEventArgs args)

@@ -18,6 +18,7 @@
         <StackPanel Grid.Column="1" Grid.Row="1" Margin="10,10,10,0">
             <CheckBox x:Name="ForceHttpsOption" Content="Force HTTPS" Margin="0,0,0,10"/>
             <CheckBox x:Name="PauseWebHistoryOption" Content="Pause Web History" Margin="0,0,0,10"/>
+            <CheckBox x:Name="EnableDarkModeOption" Content="Enable Dark Mode" Margin="0,0,0,10"/>
         </StackPanel>
         <Grid Grid.Column="1" Grid.Row="3">
             <Grid.ColumnDefinitions>

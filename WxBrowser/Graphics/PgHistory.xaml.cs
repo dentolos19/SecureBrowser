@@ -19,10 +19,8 @@ namespace WxBrowser.Graphics
         private void RefreshHistory(object sender, RoutedEventArgs args)
         {
             HistoryList.Items.Clear();
-            foreach (var item in App.Settings.WebHistory)
-            {
-                HistoryList.Items.Add(item);
-            }
+            for (var index = App.Settings.WebHistory.Count - 1; !(index <= 0); index--)
+                HistoryList.Items.Add(App.Settings.WebHistory[index]);
         }
 
         private void ClearHistory(object sender, RoutedEventArgs args)
