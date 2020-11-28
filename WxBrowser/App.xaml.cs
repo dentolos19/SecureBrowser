@@ -2,6 +2,9 @@
 using System.Windows.Threading;
 using WxBrowser.Core;
 using WxBrowser.Graphics;
+using AdonisMessageBox = AdonisUI.Controls.MessageBox;
+using AdonisMessageBoxButton = AdonisUI.Controls.MessageBoxButton;
+using AdonisMessageBoxResult = AdonisUI.Controls.MessageBoxResult;
 
 namespace WxBrowser
 {
@@ -15,7 +18,15 @@ namespace WxBrowser
             Settings = Configuration.Load();
             if (!Utilities.IsWebViewRuntimeInstalled())
             {
-                Current.MainWindow = new WnRuntimeInstaller();
+                if (AdonisMessageBox.Show("WebView Runtime is not installed! Would you like to install it automatically? Otherwise, this app will refuse to launch.", "WxBrowser", AdonisMessageBoxButton.YesNo) == AdonisMessageBoxResult.Yes)
+                {
+                    Current.MainWindow = new WnRuntimeInstaller();
+                }
+                else
+                {
+                    Current.Shutdown();
+                    return;
+                }
             }
             else
             {

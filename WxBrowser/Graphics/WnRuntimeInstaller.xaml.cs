@@ -47,14 +47,11 @@ namespace WxBrowser.Graphics
             if (args.Cancelled)
             {
                 if (args.Error != null)
-                {
                     throw args.Error;
-                }
                 AdonisMessageBox.Show("The download operation was cancelled! Unable to install runtime!", "WxBrowser");
-                Dispatcher.Invoke(() =>
-                {
-                    Application.Current.Shutdown();
-                });
+                if (File.Exists(_downloadFilePath))
+                    File.Delete(_downloadFilePath); 
+                Dispatcher.Invoke(() => { Application.Current.Shutdown(); });
             }
             else
             {
@@ -67,14 +64,12 @@ namespace WxBrowser.Graphics
                 {
                     FileName = _downloadFilePath,
                     Arguments = "/silent /install",
-                    Verb = "runas"
+                    Verb = "runas",
+                    UseShellExecute = true
                 });
                 task?.WaitForExit();
                 File.Delete(_downloadFilePath);
-                Dispatcher.Invoke(() =>
-                {
-                    Utilities.RestartApp();
-                });
+                Dispatcher.Invoke(() => { Utilities.RestartApp(); });
             }
         }
 
