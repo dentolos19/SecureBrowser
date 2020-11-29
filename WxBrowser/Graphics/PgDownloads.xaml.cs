@@ -1,4 +1,4 @@
-﻿namespace WxBrowser.Graphics
+namespace WxBrowser.Graphics
 {
 
     public partial class PgDownloads

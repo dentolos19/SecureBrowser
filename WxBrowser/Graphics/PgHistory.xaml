@@ -25,7 +25,7 @@
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Content="&#xE72C;" ToolTip="Refresh History" FontFamily="Segoe MDL2 Assets" Click="RefreshHistory"/>
             <Button Grid.Column="2" Content="&#xE74D;" ToolTip="Clear History" FontFamily="Segoe MDL2 Assets" Click="ClearHistory"/>
-            <TextBox Grid.Column="4" VerticalContentAlignment="Center" KeyDown="FilterHistory"/>
+            <TextBox x:Name="FilterBox" Grid.Column="4" VerticalContentAlignment="Center" TextChanged="FilterHistory"/>
         </Grid>
         <ListView x:Name="HistoryList" Grid.Column="1" Grid.Row="3">
             <ListView.View>

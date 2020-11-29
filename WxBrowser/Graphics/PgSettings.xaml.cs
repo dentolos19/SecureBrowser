@@ -1,4 +1,4 @@
-﻿using System.Windows;
+using System.Windows;
 using AdonisUI;
 using WxBrowser.Core;
 using AdonisMessageBox = AdonisUI.Controls.MessageBox;
