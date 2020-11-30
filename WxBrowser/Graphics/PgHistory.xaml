@@ -27,7 +27,7 @@
             <Button Grid.Column="2" Content="&#xE74D;" ToolTip="Clear History" FontFamily="Segoe MDL2 Assets" Click="ClearHistory"/>
             <TextBox x:Name="FilterBox" Grid.Column="4" VerticalContentAlignment="Center" TextChanged="FilterHistory"/>
         </Grid>
-        <ListView x:Name="HistoryList" Grid.Column="1" Grid.Row="3">
+        <ListView x:Name="HistoryList" Grid.Column="1" Grid.Row="3" MouseDoubleClick="OpenHistory">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Path=Title}"/>
@@ -35,6 +35,11 @@
                     <GridViewColumn Header="Time" DisplayMemberBinding="{Binding Path=Time}"/>
                 </GridView>
             </ListView.View>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Copy Address" Click="CopyAddress"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
         </ListView>
     </Grid>
 </Page>

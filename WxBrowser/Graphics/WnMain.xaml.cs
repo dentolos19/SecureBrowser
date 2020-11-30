@@ -17,9 +17,9 @@ namespace WxBrowser.Graphics
             NewBrowserTab();
         }
 
-        public void NewBrowserTab()
+        public void NewBrowserTab(string address = null)
         {
-            var tab = new ViewTabBinding { Content = new PgBrowser() };
+            var tab = new ViewTabBinding { Content = new PgBrowser(address) };
             _tabs.Add(tab);
             ViewControl.SelectedIndex = _tabs.IndexOf(tab);
         }

@@ -16,3 +16,9 @@
 </p>
 
 This project was created to experiment with [WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2), and additionally try out the new features of .NET 5!
+
+## Screenshots
+
+![](./.github/screenshots/0.png)
+![](./.github/screenshots/1.png)
+![](./.github/screenshots/2.png)

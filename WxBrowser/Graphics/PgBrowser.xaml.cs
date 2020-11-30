@@ -1,7 +1,6 @@
 using System;
 using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Data;
 using System.Windows.Input;
 using Microsoft.Web.WebView2.Core;
 using WxBrowser.Core.Bindings;
@@ -14,13 +13,13 @@ namespace WxBrowser.Graphics
 
         private bool _isNavigating;
 
-        public PgBrowser()
+        public PgBrowser(string address = null)
         {
             InitializeComponent();
-            InitializeWebView();
+            InitializeWebView(address);
         }
 
-        private async void InitializeWebView()
+        private async void InitializeWebView(string address = null)
         {
             await WebView.EnsureCoreWebView2Async();
             if (WebView.CoreWebView2 == null)
@@ -31,7 +30,7 @@ namespace WxBrowser.Graphics
                 if (!App.Settings.PauseWebHistory)
                     App.Settings.WebHistory.Add(new HistoryItemBinding { Title = WebView.CoreWebView2.DocumentTitle, Address = WebView.Source.ToString(), Time = DateTime.Now });
             };
-            WebView.CoreWebView2.Navigate(App.Settings.DefaultHomeAddress);
+            WebView.CoreWebView2.Navigate(string.IsNullOrEmpty(address) ? App.Settings.DefaultHomeAddress : address);
         }
 
         private void GoBack(object sender, ExecutedRoutedEventArgs args)
@@ -89,9 +88,7 @@ namespace WxBrowser.Graphics
             if (regex.IsMatch(address))
             {
                 if (!address.StartsWith("http://") && !address.StartsWith("https://"))
-                {
                     address = $"http://{address}";
-                }
             }
             else
             {

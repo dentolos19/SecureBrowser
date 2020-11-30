@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Input;
 using WxBrowser.Core.Bindings;
 using AdonisMessageBox = AdonisUI.Controls.MessageBox;
 using AdonisMessageBoxButton = AdonisUI.Controls.MessageBoxButton;
@@ -50,6 +51,18 @@ namespace WxBrowser.Graphics
         private void FilterHistory(object sender, TextChangedEventArgs args)
         {
             CollectionViewSource.GetDefaultView(HistoryList.ItemsSource)?.Refresh();
+        }
+
+        private void OpenHistory(object sender, MouseButtonEventArgs args)
+        {
+            if (HistoryList.SelectedItem is HistoryItemBinding binding && Application.Current.MainWindow is WnMain window)
+                window.NewBrowserTab(binding.Address);
+        }
+
+        private void CopyAddress(object sender, RoutedEventArgs args)
+        {
+            if (HistoryList.SelectedItem is HistoryItemBinding binding)
+                Clipboard.SetText(binding.Address);
         }
 
     }
