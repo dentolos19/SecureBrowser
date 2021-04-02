@@ -1,15 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
+		
 		<OutputType>WinExe</OutputType>
 		<TargetFramework>net5.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		
 		<UseWPF>true</UseWPF>
-		<StartupObject>WxBrowser.App</StartupObject>
-		<Authors>Dennise Catolos</Authors>
-		<Copyright>Copyright © 2020</Copyright>
-		<SignAssembly>true</SignAssembly>
-		<AssemblyOriginatorKeyFile>Properties\AssemblyKey.snk</AssemblyOriginatorKeyFile>
 		<ApplicationIcon>Resources\Icon.ico</ApplicationIcon>
+		<Product>WxBrowser</Product>
+		<Authors>Dennise Catolos</Authors>
+		<Version>1.0.0</Version>
+		<Copyright>Copyright © 2021</Copyright>
+		
 	</PropertyGroup>
 
 	<ItemGroup>

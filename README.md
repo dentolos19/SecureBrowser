@@ -1,21 +1,19 @@
-<h1 align="center">
-  <br>
-    <img src="./.github/icon.png" width="200">
-  <br>
-    WxBrowser
-  <br>
-</h1>
+<div align="center">
 
-<p align="center">
-  <a href="https://dotnet.microsoft.com">
-    <img src="https://img.shields.io/badge/Powered%20By-.NET-blue?logo=microsoft&style=for-the-badge">
-  </a>
-  <a href="https://visualstudio.microsoft.com">
-    <img src="https://img.shields.io/badge/Made%20With-Visual%20Studio-blue?logo=visual-studio&style=for-the-badge">
-  </a>
-</p>
+<img src="./.github/icon.png" width="100"/>
 
-This project was created to experiment with [WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2), and additionally try out the new features of .NET 5!
+</div>
+
+<h1 align="center">WxBrowser</h1>
+
+<div align="center">
+
+[![](https://img.shields.io/badge/Powered%20By-.NET-blue?logo=microsoft&style=flat-square)](https://dotnet.microsoft.com)
+[![](https://img.shields.io/badge/Made%20With-Rider-blue?logo=jetbrains&style=flat-square)](https://www.jetbrains.com/rider)
+
+</div>
+
+This project was created to experiment with [WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2) and web scraping.
 
 ## Screenshots
 
