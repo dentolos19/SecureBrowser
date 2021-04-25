@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net5.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+		<ApplicationIcon>Resources\Icon.ico</ApplicationIcon>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="HtmlAgilityPack" Version="1.11.33" />
+		<PackageReference Include="Microsoft.Web.WebView2" Version="1.0.818.41" />
+		<PackageReference Include="Syncfusion.Shared.WPF" Version="19.1.0.57" />
+		<PackageReference Include="Syncfusion.Tools.WPF" Version="19.1.0.57" />
+		<PackageReference Include="Syncfusion.SfInput.WPF" Version="19.1.0.57" />
+	</ItemGroup>
+
+</Project>
