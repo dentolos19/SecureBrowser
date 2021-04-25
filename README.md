@@ -13,4 +13,9 @@
 
 </div>
 
-This project is only experimental and is not intended for use on day-to-day basis. This project was to experiment with [WebView2](https://docs.microsoft.com/microsoft-edge/webview2), web scraping & security methods.
+This project is intended to experiment with [WebView2](https://docs.microsoft.com/microsoft-edge/webview2), testing web scraping and new privacy methods.
+
+### Screenshots
+
+![](./.github/screenshots/0.png)
+![](./.github/screenshots/1.png)

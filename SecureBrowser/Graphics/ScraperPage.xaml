@@ -1,6 +1,0 @@
-﻿<Page x:Class="SecureBrowser.Graphics.ScraperPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      Title="Scraper">
-    <TextBlock Text="Hello World" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-</Page>

@@ -1,11 +1,11 @@
-﻿using System.Windows.Controls;
+using System.Windows.Controls;
 
 namespace SecureBrowser.Core.Bindings
 {
 
-    public class TabBinding
+    public class ViewTabBinding
     {
-        
+
         public Page Content { get; init; }
 
     }
