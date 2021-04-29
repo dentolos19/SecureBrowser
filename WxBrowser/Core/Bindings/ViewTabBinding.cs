@@ -1,6 +1,6 @@
 using System.Windows.Controls;
 
-namespace SecureBrowser.Core.Bindings
+namespace WxBrowser.Core.Bindings
 {
 
     public class ViewTabBinding

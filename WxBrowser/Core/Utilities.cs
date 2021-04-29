@@ -1,12 +1,12 @@
+using Microsoft.Win32;
 using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
-using Microsoft.Win32;
 
-namespace SecureBrowser.Core
+namespace WxBrowser.Core
 {
 
     public static class Utilities

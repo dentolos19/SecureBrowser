@@ -1,9 +1,9 @@
-﻿<adonisControls:AdonisWindow x:Class="SecureBrowser.Graphics.WnMain"
+﻿<adonisControls:AdonisWindow x:Class="WxBrowser.Graphics.WnMain"
                              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                              xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
-                             xmlns:bindings="clr-namespace:SecureBrowser.Core.Bindings"
-                             Title="SecureBrowser" MinWidth="800" MinHeight="500" WindowStartupLocation="CenterScreen">
+                             xmlns:bindings="clr-namespace:WxBrowser.Core.Bindings"
+                             Title="WxBrowser" MinWidth="800" MinHeight="500" WindowStartupLocation="CenterScreen">
     <TabControl x:Name="ViewControl" Margin="10,10,10,10">
         <TabControl.ItemTemplate>
             <DataTemplate DataType="bindings:ViewTabBinding">

@@ -1,4 +1,4 @@
-﻿<adonisControls:AdonisWindow x:Class="SecureBrowser.Graphics.WnRuntimeInstaller"
+﻿<adonisControls:AdonisWindow x:Class="WxBrowser.Graphics.WnRuntimeInstaller"
                              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                              xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"

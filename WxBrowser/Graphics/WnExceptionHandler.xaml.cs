@@ -1,8 +1,8 @@
 using System;
 using System.Windows;
-using SecureBrowser.Core;
+using WxBrowser.Core;
 
-namespace SecureBrowser.Graphics
+namespace WxBrowser.Graphics
 {
 
     public partial class WnExceptionHandler

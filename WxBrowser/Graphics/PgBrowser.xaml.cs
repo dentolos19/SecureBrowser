@@ -1,11 +1,11 @@
+using Microsoft.Web.WebView2.Core;
 using System;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
-using Microsoft.Web.WebView2.Core;
-using SecureBrowser.Core.Bindings;
+using WxBrowser.Core.Bindings;
 
-namespace SecureBrowser.Graphics
+namespace WxBrowser.Graphics
 {
 
     public partial class PgBrowser

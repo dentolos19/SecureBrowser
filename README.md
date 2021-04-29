@@ -4,7 +4,7 @@
 
 </div>
 
-<h1 align="center">SecureBrowser</h1>
+<h1 align="center">WxBrowser</h1>
 
 <div align="center">
 
@@ -13,7 +13,7 @@
 
 </div>
 
-This project is intended to experiment with [WebView2](https://docs.microsoft.com/microsoft-edge/webview2), testing web scraping and new privacy methods.
+This project is intended to experiment with [WebView2](https://docs.microsoft.com/microsoft-edge/webview2), and testing web scraping.
 
 ## Screenshots
 

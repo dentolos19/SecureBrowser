@@ -1,6 +1,6 @@
 using System;
 
-namespace SecureBrowser.Core.Bindings
+namespace WxBrowser.Core.Bindings
 {
 
     public class HistoryItemBinding

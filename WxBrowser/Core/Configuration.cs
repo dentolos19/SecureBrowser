@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
-using SecureBrowser.Core.Bindings;
+using WxBrowser.Core.Bindings;
 
-namespace SecureBrowser.Core
+namespace WxBrowser.Core
 {
 
     public class Configuration

@@ -1,11 +1,11 @@
-using System.Windows;
 using AdonisUI;
-using SecureBrowser.Core;
+using System.Windows;
+using WxBrowser.Core;
 using AdonisMessageBox = AdonisUI.Controls.MessageBox;
 using AdonisMessageBoxButton = AdonisUI.Controls.MessageBoxButton;
 using AdonisMessageBoxResult = AdonisUI.Controls.MessageBoxResult;
 
-namespace SecureBrowser.Graphics
+namespace WxBrowser.Graphics
 {
 
     public partial class PgSettings

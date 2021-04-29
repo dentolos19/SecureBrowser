@@ -4,10 +4,10 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Windows;
-using SecureBrowser.Core;
+using WxBrowser.Core;
 using AdonisMessageBox = AdonisUI.Controls.MessageBox;
 
-namespace SecureBrowser.Graphics
+namespace WxBrowser.Graphics
 {
 
     public partial class WnRuntimeInstaller

@@ -1,13 +1,13 @@
+using AdonisUI;
 using System.Windows;
 using System.Windows.Threading;
-using AdonisUI;
-using SecureBrowser.Core;
-using SecureBrowser.Graphics;
+using WxBrowser.Core;
+using WxBrowser.Graphics;
 using AdonisMessageBox = AdonisUI.Controls.MessageBox;
 using AdonisMessageBoxButton = AdonisUI.Controls.MessageBoxButton;
 using AdonisMessageBoxResult = AdonisUI.Controls.MessageBoxResult;
 
-namespace SecureBrowser
+namespace WxBrowser
 {
 
     public partial class App

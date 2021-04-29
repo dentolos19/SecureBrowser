@@ -4,12 +4,12 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
-using SecureBrowser.Core.Bindings;
+using WxBrowser.Core.Bindings;
 using AdonisMessageBox = AdonisUI.Controls.MessageBox;
 using AdonisMessageBoxButton = AdonisUI.Controls.MessageBoxButton;
 using AdonisMessageBoxResult = AdonisUI.Controls.MessageBoxResult;
 
-namespace SecureBrowser.Graphics
+namespace WxBrowser.Graphics
 {
 
     public partial class PgHistory

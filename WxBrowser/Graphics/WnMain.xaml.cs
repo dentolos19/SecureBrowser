@@ -1,8 +1,8 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using SecureBrowser.Core.Bindings;
+using WxBrowser.Core.Bindings;
 
-namespace SecureBrowser.Graphics
+namespace WxBrowser.Graphics
 {
 
     public partial class WnMain
